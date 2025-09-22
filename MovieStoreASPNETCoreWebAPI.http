@@ -1,0 +1,6 @@
+@MovieStoreASPNETCoreWebAPI_HostAddress = http://localhost:5147
+
+GET {{MovieStoreASPNETCoreWebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
