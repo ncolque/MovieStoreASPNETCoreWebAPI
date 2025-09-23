@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MovieStoreASPNETCoreWebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef506085b09b8654ea6c45c3deb39ac0a1dd53f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("MovieStoreASPNETCoreWebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MovieStoreASPNETCoreWebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
