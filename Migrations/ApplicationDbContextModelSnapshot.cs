@@ -47,6 +47,31 @@ namespace MovieStoreASPNETCoreWebAPI.Migrations
                     b.ToTable("Actores");
                 });
 
+            modelBuilder.Entity("MovieStoreASPNETCoreWebAPI.Entities.Comentario", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Contenido")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<long>("PeliculaId")
+                        .HasColumnType("bigint");
+
+                    b.Property<bool>("Recomendar")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PeliculaId");
+
+                    b.ToTable("Comentario");
+                });
+
             modelBuilder.Entity("MovieStoreASPNETCoreWebAPI.Entities.Genero", b =>
                 {
                     b.Property<long>("Id")
@@ -63,6 +88,46 @@ namespace MovieStoreASPNETCoreWebAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Generos");
+                });
+
+            modelBuilder.Entity("MovieStoreASPNETCoreWebAPI.Entities.Pelicula", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<bool>("EnCines")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("FechaEstreno")
+                        .HasColumnType("date");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Peliculas");
+                });
+
+            modelBuilder.Entity("MovieStoreASPNETCoreWebAPI.Entities.Comentario", b =>
+                {
+                    b.HasOne("MovieStoreASPNETCoreWebAPI.Entities.Pelicula", "Pelicula")
+                        .WithMany("Comentarios")
+                        .HasForeignKey("PeliculaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pelicula");
+                });
+
+            modelBuilder.Entity("MovieStoreASPNETCoreWebAPI.Entities.Pelicula", b =>
+                {
+                    b.Navigation("Comentarios");
                 });
 #pragma warning restore 612, 618
         }
